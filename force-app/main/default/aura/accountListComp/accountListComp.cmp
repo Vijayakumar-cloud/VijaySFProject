@@ -1,0 +1,35 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:registerEvent name="accountListEvent" type="c:customUtilityEvent"/> 
+    <Aura:attribute name="accountList" type="list"></Aura:attribute>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="slds-text-title_caps" scope="col">
+                    <div class="slds-truncate" title="Account Name">Account Name</div>
+                </th>
+                <th class="slds-text-title_caps" scope="col">
+                    <div class="slds-truncate" title="Account Type">Type</div>
+                </th>
+                <th class="slds-text-title_caps" scope="col">
+                    <div class="slds-truncate" title="Account Industry">Industry</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.accountList}" var="acc">
+                <tr  key="{!acc.Id}">
+                    <td data-label="{!v.acc.Name}">
+                        <div data-id="{!acc.Id}" class="slds-truncate" title="{!acc.Name}" onclick="{!c.handleAccClick}"><label>{!acc.Name}</label></div>
+                    </td>
+                    <td data-label="{!acc.Type}" scope="row">
+                        <div data-id="{!acc.Id}" class="slds-truncate" title="{!acc.Type}" onclick="{!c.handleAccClick}"><label>{!acc.Type}</label></div>
+                    </td>
+                    <td data-label="{!acc.Industry}" scope="row">
+                        <div data-id="{!acc.Id}" class="slds-truncate" title="{!acc.Industry}" onclick="{!c.handleAccClick}"><label>{!acc.Industry}</label></div>
+                    </td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+    
+</aura:component>

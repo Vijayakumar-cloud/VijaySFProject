@@ -1,0 +1,24 @@
+<template>
+   <lightning-quick-action-panel title="Lead Convert">
+    <div class="slds-p-around_large">
+      <lightning-input type="text" 
+      variant="standard" 
+      name="name" 
+      label="Account Name" 
+      disabled=true 
+      value="dfhf" >
+      </lightning-input>
+      <lightning-input type="text"
+       variant="standard"
+        name="name"
+       label="Contact Name" 
+       disabled=true 
+       value="hjwa" >
+      </lightning-input>
+    </div>
+     <div slot="footer">
+        <lightning-button variant="neutral" label="Convert Lead" onclick={handleApex}></lightning-button>
+       <lightning-button variant="brand" label="cancel" onclick={closeAction}></lightning-button>
+      </div> 
+    </lightning-quick-action-panel> 
+</template>

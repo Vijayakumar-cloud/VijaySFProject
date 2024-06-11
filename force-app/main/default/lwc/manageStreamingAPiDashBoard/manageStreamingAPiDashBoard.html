@@ -1,0 +1,108 @@
+<template>
+    <template if:true={openDashBoard}>
+    <lightning-layout multiple-rows="false">
+        <lightning-layout-item size="5" padding="medium">
+    <lightning-layout title="DML Exceptions" style="height:300px;width:500px;background-color:darkslategray;">
+    <!-- <lightning-card title="DML Exceptions" style="height: 300px;width:250px;" >
+        <div> -->
+            <lightning-layout-item>
+            <lightning-layout>
+               <lightning-layout-item size="12" style="margin-left:10%;margin-top:10%;">
+                <label style="font-size:medium;color:aquamarine;">DML Exceptions</label>
+               </lightning-layout-item>   
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-layout-item size="12">
+
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-layout-item size="12" style="margin-left:150%;margin-top:80%;">
+                 <!-- <p ">{getCount}</p> -->
+                  <span onclick={handleClick}><p data-id="dml" title="Click here to see Data" class={mouseClass} style="margin-left:40%;color:red;font-size:xx-large;" >{getDmlCount}</p></span>
+                </lightning-layout-item>   
+             </lightning-layout>
+            </lightning-layout-item>
+        <!-- </div>
+    </lightning-card> -->
+</lightning-layout>
+</lightning-layout-item>
+<lightning-layout-item size="2"></lightning-layout-item>
+<lightning-layout-item size="5" padding="medium" >
+<lightning-layout title="Limit Exceptions" style="height:300px;width:500px;background-color:darkslategray;">
+    <!-- <lightning-card title="DML Exceptions" style="height: 300px;width:250px;" >
+        <div> -->
+            <lightning-layout-item>
+            <lightning-layout>
+               <lightning-layout-item size="12" style="margin-left:10%;margin-top:10%;">
+                <label style="font-size:medium;color:aquamarine;">Limit Exceptions</label>
+               </lightning-layout-item>   
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-layout-item size="12">
+
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-layout-item size="12" style="margin-left:150%;margin-top:80%;">
+                 <!-- <p ">{getCount}</p> -->
+                  <span onclick={handleClick}><p data-id="limit" title="Click here to see Data" class={mouseClass} style="margin-left:40%;color:red;font-size:xx-large;" >{getLimitCount}</p></span>
+                </lightning-layout-item>   
+             </lightning-layout>
+            </lightning-layout-item>
+        <!-- </div>
+    </lightning-card> -->
+</lightning-layout>
+</lightning-layout-item>
+</lightning-layout>
+</template>
+<lightning-layout>
+    <lightning-layout size="12" style="margin-bottom:3%;">
+
+    </lightning-layout>
+</lightning-layout>
+<template if:true={showData}>
+    <table style="margin-top:3%;" class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Name">ReceivedFrom</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="First Name">Controller</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Last Name">Method</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Phone">ExceptionType</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Email">Error</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={storeArr} for:item="dml">
+                <tr key={dml.data.payload.CreatedDate}>
+                    <th scope="col">
+                        <div>{dml.data.payload.ErrorReceivedFrom__c}</div>
+                    </th>
+                    <th scope="col">
+                        <div>{dml.data.payload.ErrorTriggeredController__c}</div>
+                    </th>
+                    <th scope="col">
+                        <div>{dml.data.payload.ErrorTriggeredMethod__c}</div>
+                    </th>
+                    <th scope="col">
+                        <div>{dml.data.payload.ExceptionType__c}</div>
+                    </th>
+                    <th scope="col">
+                        <div> {dml.data.payload.ErrorMessage__c} </div>
+                    </th>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</template>
+</template>

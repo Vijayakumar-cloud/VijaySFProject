@@ -1,0 +1,11 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:registerEvent name="accountEditEvent" type="c:customUtilityEvent"/>
+    <Aura:attribute name="recId" type="string" ></Aura:attribute>
+    <lightning:recordEditForm recordId="{!v.recId}" objectApiName="Account" onsuccess="{!c.handleSuccess}">
+        <lightning:messages />
+        <lightning:inputField fieldName="Name" />
+        <lightning:inputField fieldName="Type" />
+        <lightning:inputField fieldName="Industry" />
+        <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Update" />
+    </lightning:recordEditForm>
+</aura:component>

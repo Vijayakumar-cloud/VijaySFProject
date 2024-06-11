@@ -1,0 +1,64 @@
+<template>
+     <!-- Add Row Button -->
+     <lightning-button variant="neutral" label="Add Row"  
+     onclick={addRow} class="margin-left"> 
+ </lightning-button>
+    <div class="slds-m-around_medium">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered"
+            aria-labelledby="element-with-table-label other-element-with-table-label" >
+            <template for:each={contacts} for:item="con" >
+                <div key={con.Id}>
+                    <tr>
+                    <th data-label="" scope="row">
+                    <lightning-input
+                         type="text" 
+                         variant="label-hidden" 
+                         label="First Name" 
+                         name="First Name" 
+                         value={con.FirstName}
+                        data-id={con.Id}
+                        onchange={updateValues}>
+                    </lightning-input>
+                    </th>
+                    <th data-label="" scope="row">
+                        <lightning-input
+                         type="text" 
+                         variant="label-hidden" 
+                         label="last Name" 
+                         name="Last Name" 
+                         value={con.LastName}
+                        data-id={con.Id}
+                        onchange={updateValues}>
+                    </lightning-input>
+                    </th>
+                    <th data-label="" scope="row">
+                        <lightning-input
+                         type="Email" 
+                         variant="label-hidden" 
+                         label="EmailId" 
+                         name="EmailId" 
+                         value={con.Email}
+                        data-id={con.Id}
+                        onchange={updateValues}>
+                    </lightning-input>
+                    </th>
+                    <th data-label="delete contact" scope="row">
+                        <lightning-button-icon icon-name="utility:delete" size="medium" 
+                        class="btnDelete" variant="border-filled" 
+                        data-index={index} alternative-text="Delete"     
+                        onclick={deleteRow}>
+                    </lightning-button-icon>
+                    </th>
+                </tr>
+                </div>
+            </template>
+        </table>
+    </div>
+      <!-- Save Button -->
+      <footer class="slds-modal__footer margin-top">             
+        <lightning-button  variant="brand" name="save" 
+            label="Save" onclick={handleSave} >
+        </lightning-button>
+    </footer>
+
+</template>

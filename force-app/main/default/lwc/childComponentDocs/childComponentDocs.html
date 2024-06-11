@@ -1,0 +1,95 @@
+<template>
+    <!--  <lightning-card title="Files ">
+        <lightning-datatable 
+            key-field="Id"
+            data={files} 
+            columns={columns}
+            hide-checkbox-column=“true” 
+            show-row-number-column=“true”   
+            >
+            </lightning-datatable>           
+        </lightning-card>-->
+    <div class="slds-m-around_medium">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered"
+            aria-labelledby="element-with-table-label other-element-with-table-label">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Name"> Name</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title ="File Upload"> file upload</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title ="File Preview">File Preview</div>
+                    </th>
+                </tr>
+            </thead>
+        
+                <template for:each={files} for:item="file" >
+                <tr class="inputRows" key={file.id}>
+                    <th data-label="Document Name" scope="row">
+                        <div class ="slds-grid slds-gutters" >
+                        <lightning-input type="text" class="fields" variant="label-hidden" label=" Name" name="Name"
+                            value={file.Name} data-id={file.Id}></lightning-input>
+                        </div>
+                    </th>
+                    <th data-label="File upload" scope="row">
+                        <div class="slds-align_absolute-left" style="height:5rem">
+                        <lightning-file-upload 
+                        name="FileUploader"
+                        accept={acceptedFormats} 
+                        data-id={file.Id}
+                        record-id={file.Id} 
+                        onuploadfinished={handleUploadFinished}>
+                        </lightning-file-upload>
+                        </div>
+                    </th>
+                    
+               <!---      <th data-label="File Preview" scope="row">
+                            <template for:each={filesTwo} for:item="filesc">
+                                <div key={filesc.value} class="slds-box">
+                                    <lightning-button label="Preview" variant="brand" data-id={filesc.value} onclick={filePreview}>
+                                    </lightning-button>
+                                </div>
+                           
+                        </template>
+                        </th> -->
+                        <th data-label="View Files Uploaded" scope="row">
+                            <lightning-button label="View Uploaded files"  name="Views files" data-id={file.Id}
+                             icon-name="utility:file" onclick={handleApex}></lightning-button>
+                         </th>
+                     </tr>
+            </template>
+        </table>  
+     <!---  <table class="slds-table_cell-buffer slds-table_bordered"
+        aria-labelledby="element-with-table-label other-element-with-tabel-label">
+        <thead>
+            <template for:each={filesTwo} for:item="filesc" if:true={preview} >
+                <tr class="slds-line-height_reset" key={filesc.value} >
+                    <th class="" scope="col">
+                        <div class="slds-truncate">
+                            <p><strong>filename - </strong>{filesc.label}</p>
+                        </div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-align_absolute-left" style="height:2rem">
+                            <lightning-button label="Preview" variant="brand" data-id={filesc.value} onclick={filePreview} icon-name="utility:preview">
+                            </lightning-button>
+                        </br>
+                    </br>
+                </br>
+                      </div>
+                    </th>
+                  </tr>
+            </template>     
+        </thead>
+        </table> -->
+    </div>
+    
+         <div>
+            <lightning-button label="View Folder" onclick={handleClick} ></lightning-button>
+        </div> 
+        
+    
+</template>

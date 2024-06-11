@@ -1,0 +1,24 @@
+<aura:component controller="getAccount" implements="flexipage:availableForAllPageTypes" access="global" >
+    <Aura:attribute name="AccountName" type="string"></Aura:attribute>
+    <Aura:attribute name="AccountData" type="list"></Aura:attribute>
+    <Aura:attribute name="displaySearchResult" type="Boolean" default="false"></Aura:attribute>
+    <Aura:attribute name="isResult" type="Boolean" default="false"></Aura:attribute>
+    <Aura:attribute name="accountId" type="string" ></Aura:attribute>
+    <Aura:attribute name="displayEditForm" type="Boolean" default="false"></Aura:attribute>
+    <aura:handler name="inputFieldEvent"   event="c:customUtilityEvent" action="{!c.handleInputFieldEvent}"/>
+    <aura:handler name="accountListEvent"   event="c:customUtilityEvent" action="{!c.handleAccountListEvent}"/>
+    <aura:handler name="accountEditEvent"   event="c:customUtilityEvent" action="{!c.handleAccountEditEvent}"/>
+    
+    <c:inputFieldComp/>
+    <aura:if isTrue ="{!v.isResult}">
+        <aura:if isTrue ="{!v.displaySearchResult}">
+            <c:accountListComp accountList="{!v.AccountData}"/>
+            <aura:set attribute="else">
+                <span>No Account Found for the Given Search Input</span>
+            </aura:set>
+        </aura:if>
+    </aura:if>  
+    <aura:if isTrue ="{!v.displayEditForm}">
+        <c:accountEditComp recId="{!v.accountId}"/>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,33 @@
+<template>
+    
+    <div class="slds-var-m-around_medium">
+        <!-- <template if:false={showNew}>
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered"
+                aria-labelledby="element-with-table-label other-element-with-table-label" >
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th  scope="col">
+                            <div class="slds-truncate" title="Name"> Name</div>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </template> -->
+        <lightning-accordion >
+            <template for:each={folderData} for:item="docs" >
+                <tr key={docs.id}>
+                    <th data-label="Folder-Name" scope="row" >                     
+                        <lightning-accordion-section label={docs.Name} name="A" value={docs.Name} data-id={docs.Id}
+                            onclick={handleClick}>                   
+                            <template if:true={showNew}>
+                               <c-manage-opportunity-file getidfromparent={recordId} folderidfromparent={folderId}  >
+                                </c-manage-opportunity-file>
+                            </template>
+                            </lightning-accordion-section>
+                    </th>
+                </tr>
+            </template>
+            </lightning-accordion>
+            
+        </div>
+</template>

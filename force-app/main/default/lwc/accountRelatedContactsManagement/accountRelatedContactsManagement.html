@@ -1,0 +1,46 @@
+<template>
+<lightning-layout multiple-rows="true" class="slds-border_top slds-border_right slds-border_bottom slds-border_left">
+    <lightning-layout-item size="12">
+    <lightning-layout multiple-rows="false" style="width:90%;height:110%" class="slds-border_top slds-border_right slds-border_bottom slds-border_left slds-m-around_large">
+        <lightning-layout-item size="2">
+            
+        </lightning-layout-item>
+        <lightning-layout-item size="2" style="margin-top:1%;margin-bottom:1%;">
+                <label style="margin-top:5%;">Enter No to Delete</label>
+        </lightning-layout-item>
+        <lightning-layout-item size ="4" style="margin-top:1%;margin-bottom:1%;">
+            <lightning-input type="number" label ="Enter No to Delete" value={getIndexNo} onchange={handleInputChange} variant="label-hidden"></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item size="2" style="margin-top:1%;text-align:center;margin-bottom:1%;">
+            <lightning-button variant="destructive" label="Delete" onclick={handleDeleteContact} ></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+    <template if:true={isShowSpinner}>
+        <lightning-spinner alternative-text="Loading" size="x-small"></lightning-spinner>
+    </template>
+    <lightning-layout class="slds-scrollable scrollable_x scrollable_y slds-border_top slds-border_right slds-border_bottom slds-border_left">
+        <lightning-layout-item size="12">
+             <lightning-layout class="table-header-row" horizontal-align="center" vertical-align="center">
+                <lightning-layout-item size="2" style="text-align:left;padding-left : 10px">
+                    <label style="font-weight:bold">No</label>
+                </lightning-layout-item>
+                <lightning-layout-item size="5" style="text-align:left;padding-left : 10px">
+                    <label style="font-weight:bold">Name</label>
+                </lightning-layout-item>
+                <lightning-layout-item size="5" style="text-align:left;padding-left : 10px">
+                    <label style="font-weight:bold">Email</label>
+                </lightning-layout-item>
+             </lightning-layout>
+                    <template if:true={contactList}>
+                        <template for:each={contactList} for:item="contact">
+                            <div key={contact.index}>
+                                    <c-contact-data-management contact={contact} onitemchange={handleUpdateParent}></c-contact-data-management>
+                            </div>
+                        </template>
+                    </template>
+               
+        </lightning-layout-item>
+    </lightning-layout>
+</lightning-layout-item>
+</lightning-layout>
+</template>

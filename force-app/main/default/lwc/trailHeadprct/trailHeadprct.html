@@ -1,0 +1,15 @@
+<template>
+    <div id="waiting" if:false={ready}>Loading…</div>
+    <div id="display" if:true={ready}>
+        <div>Name: {name}</div>
+        <div>Description: {description}</div>
+        <lightning-input type="Number" label="Amount" value={amnt} onchange={docheck}></lightning-input>
+        <lightning-input type="Number" label="Request Discount" value={disVAlue} onchange={docheck}></lightning-input>
+        <lightning-button variant="base" label="calculate" title="calculate discount" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+        <lightning-input  label="Discounted price" value={discountedPrice} readonly></lightning-input>
+        <lightning-badge label={material}></lightning-badge>
+        <lightning-badge label={category}></lightning-badge>
+        <div>Price: {price}</div>
+        <div><img src={pictureUrl}/></div>
+    </div>
+</template>

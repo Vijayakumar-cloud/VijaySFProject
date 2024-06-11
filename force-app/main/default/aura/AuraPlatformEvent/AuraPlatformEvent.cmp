@@ -1,0 +1,52 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name="Eventslist" type="list"></aura:attribute>
+    <aura:attribute name="isReceived" type="Boolean" default="false"></aura:attribute>
+    <aura:handler name="init" value="{!this}" action="{!c.handleSubscribe}"/>
+    <lightning:empApi aura:id="empApi" />
+    <lightning:card title="All Events received">
+        <aura:if isTrue="{!v.isReceived}">
+            <div style="float:right;margin-bottom:2%;">
+            <lightning:button label="Clear Old Events"  variant="brand" onclick="{!c.handleClick}"></lightning:button>
+            </div>
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Account Name">Account Name</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Account Type">Account Type</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Industry">Industry</div>
+                        </th>
+                         <th class="slds-text-title_caps" scope="col">
+                             <div class="slds-truncate" title="CreatedDate">Received/CreatedDate</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.Eventslist}" var="event">
+                        <tr class="slds-hint-parent">
+                            <td data-label="{!event.data.payload.Account_Name__c}" scope="row">
+                                <div class="slds-truncate" title="">{!event.data.payload.Account_Name__c}</div>
+                            </td>
+                            <td data-label="{!event.data.payload.Account_Type__c}">
+                                <div class="slds-truncate" title="">{!event.data.payload.Account_Type__c}</div>
+                            </td>
+                            <td data-label="{!event.data.payload.Account_Industry__c}">
+                                <div class="slds-truncate" title="">{!event.data.payload.Account_Industry__c}</div>
+                            </td>
+                             <td data-label="{!event.data.payload.CreatedDate}">
+                                <div class="slds-truncate" title="">{!event.data.payload.CreatedDate}</div>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+            <aura:set attribute="else">
+                <p>No new Event is Received Yet.</p>
+            </aura:set>
+        </aura:if>
+    </lightning:card>
+</aura:component>

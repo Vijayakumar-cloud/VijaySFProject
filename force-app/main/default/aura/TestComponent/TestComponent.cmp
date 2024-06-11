@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	Hello World
+    <p>Hello worldeee</p><br/>
+<p><lightning:formattedText value='hello World from lightning component' /></p>
+</aura:component>

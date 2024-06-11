@@ -1,0 +1,23 @@
+<aura:component controller="AccountController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="indexNo"  type="integer"/>
+    <aura:attribute name="contactList" type ="list" />
+    <aura:attribute name= "isShowSpinner" type ="boolean" default ="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <lightning:layout multipleRows="true" class="slds-border_top slds-border_right slds-border_bottom slds-border_left">
+        <lightning:layoutItem size="12">
+            <lightning:layout  multipleRows="true" class="slds-border_top slds-border_right slds-border_bottom slds-border_left">
+                <lightning:layoutItem size="2">
+                </lightning:layoutItem>
+                 <lightning:layoutItem size="2" class="inputStyle" >
+                     <label>Enter No to Delete</label>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="4" class="inputStyle">
+                    <lightning:input type="number"></lightning:input>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

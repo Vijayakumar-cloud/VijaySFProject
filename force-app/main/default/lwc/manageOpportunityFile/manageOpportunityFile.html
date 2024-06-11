@@ -1,0 +1,57 @@
+<template>
+    <div class="slds-m-around_medium">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered"
+            aria-labelledby="element-with-table-label other-element-with-table-label" if:false={prview}>
+            <!-- <thead>
+                <tr class="slds-line-height_reset">
+                    <th scope="col">
+                        <div class="slds-truncate" title="Name"> Name</div>
+                    </th>
+                    <th  scope="col">
+                        <div class="slds-truncate" title="file upload"></div>
+                    </th>
+                    <th  scope="col">
+                        <div class="slds-truncate" title="file preview"></div>
+
+                    </th>
+                </tr>
+            </thead> -->
+            <template for:each={files} for:item="file" >
+                <tr key={file.id}>
+                    <th data-label="Document Name" scope="row">
+                    <lightning-input
+                         type="text" 
+                         variant="label-hidden" 
+                         label=" Name" 
+                         name="Name" 
+                         value={file.Name}
+                         disabled=true
+                         read
+                        data-id={file.Id}>
+                    </lightning-input>
+                    </th>
+                    <th data-label="File upload" scope="row">
+                        <div class="slds-align_absolute-left" style="height:5rem">
+                            <lightning-file-upload 
+                            name="fileUploader" 
+                            accept={acceptedFormats} 
+                            data-id={file.Id}
+                            record-id={file.Id} 
+                            onuploadfinished={handleUploadFinished}>
+                            </lightning-file-upload>
+                        </div>
+                    </th>
+                    <th data-label="File upload" scope="row">
+                     <lightning-button 
+                        label="View" 
+                        name="view file" 
+                        data-id={file.Id}
+                        icon-name="utility:file" 
+                        onclick={handleCallApexToPreview}>
+                    </lightning-button>
+                    </th>
+                </tr>
+            </template>
+        </table>
+    </div>
+</template>

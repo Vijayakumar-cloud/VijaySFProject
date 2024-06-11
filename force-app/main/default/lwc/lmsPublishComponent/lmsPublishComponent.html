@@ -1,0 +1,25 @@
+<template>
+    <div style="background-color:aliceblue;">
+    <div  style="display-flex;align-items:flex-start;align-content:end" >
+        <lightning-button class="slds-m-around_xx-large slds-m-bottom_xx-large" label ='Snap' variant="Brand" onclick={handleSnapClick}></lightning-button>
+    </div>
+</div>
+    <lightning-card title="Lightning Message Service (LMS) in LWC Publisher" style="width:fit-content;height:fit-content;" icon-name="standard:contact">
+       
+        <div lwc:ref="mainDiv" class="captureid slds-p-horizontal_small">
+            <lightning-input type="text" label="Enter Count" onchange={handleChange} value={getCount}></lightning-input>
+            <!-- call subscriber -->
+            <div class="slds-p-around_medium lgc-bg" style="text-align: end;">
+                <lightning-button label="Fire Event" variant="brand" onclick={handleClick}></lightning-button>
+            </div>    
+        </div>
+        <div style="display: flex; align-items: end; flex-direction: column;">
+            <lightning-button label="Button1" class="alignButton slds-button_neutral "></lightning-button>
+            <lightning-button label="Button2" class="alignButton  slds-button_neutral "></lightning-button>
+        </div>
+    </lightning-card>
+    
+      
+    
+    
+</template>

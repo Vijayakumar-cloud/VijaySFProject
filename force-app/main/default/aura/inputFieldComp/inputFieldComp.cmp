@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<aura:registerEvent name="inputFieldEvent" type="c:customUtilityEvent"/> 
+    <Aura:attribute name="AccountName" type="string"></Aura:attribute>
+    <lightning:layout>
+        <lightning:layoutItem  size="4" padding="small" >
+            <lightning:input aura:id ="inputId" label="Search Account"  variant="label-inline"></lightning:input>
+        </lightning:layoutItem >
+        <lightning:layoutItem  size="2" padding="small">
+            <lightning:button label="Search" onclick="{!c.handleSearch}" variant="brand"></lightning:button>
+        </lightning:layoutItem >
+    </lightning:layout>
+</aura:component>

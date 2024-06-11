@@ -1,0 +1,21 @@
+<template>
+    <div >
+        <lightning-tile label="DataBase Records" href="/path/to/somewhere">
+            <p class="slds-truncate" title="7 Members">7 Members</p>
+        </lightning-tile>
+    </div>
+    <div>
+        <lightning-input type="text" label="Enter Account Name" value={AccName}></lightning-input>
+    </div>
+    <div>
+        <lightning-button variant="base" label="Search Record" title="Search" onclick={handleClick}></lightning-button>
+     </div>
+     <div>
+        <lightning-datatable
+                key-field="id"
+                data={AccData}
+                columns={columns}>
+        </lightning-datatable>
+    </div>
+
+</template>

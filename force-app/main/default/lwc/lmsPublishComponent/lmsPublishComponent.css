@@ -1,0 +1,32 @@
+.button-container {
+    /* Optional: Add spacing between buttons */
+    margin-bottom: 10px;
+  }
+  
+  .buttonCss {
+    display: block; /* or inline-block */
+    width: 100%; /* Optional: Make buttons stretch across container */
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    margin-left: 3%;
+    border-radius: 4px;
+    margin-bottom: 5px; /* Optional: Add some vertical spacing between buttons */
+  }
+
+ /*.alignButton {
+
+   display: flex; 
+   flex-direction: column; 
+   width: fit-content; 
+   float: right;
+ } */
+  .alignButton {
+
+    display:block;
+    width: fit-content;
+    height: fit-content;
+    margin: 10px;
+    
+  }
