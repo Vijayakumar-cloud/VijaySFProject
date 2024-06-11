@@ -24,6 +24,7 @@ export default class accountPlatformEvent extends LightningElement {
     connectedCallback() {
         // Register error listener
         this.registerErrorListener();
+        console.log('connected')
     }
 
     // Handles subscribe button click
